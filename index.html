@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Online English Lessons | Private Tutoring</title>
+    <title>Μαθήματα Αγγλικών Online | Ιδιαίτερα Μαθήματα</title>
 
-    <meta name="description" content="Online private English lessons for adults, including Lower, Proficiency and exam preparation. Lessons starting at €10 per hour. Taught by a current Aristotle University of Thessaloniki student.">
+    <meta name="description" content="Ιδιαίτερα διαδικτυακά μαθήματα Αγγλικών για ενήλικες, προετοιμασία για Lower, Proficiency και εξετάσεις. Μαθήματα από 10€ την ώρα.">
 
     <meta name="theme-color" content="#ffffff">
 
     <style>
-        /* =========================
-           GLOBAL STYLES
-        ========================= */
-
         :root {
             --lime: #c6f536;
             --lime-dark: #a9d923;
@@ -55,9 +51,7 @@
             margin: 0 auto;
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* NAVIGATION */
 
         header {
             border-bottom: 1px solid var(--border);
@@ -83,6 +77,12 @@
             margin-right: 4px;
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
         .nav-link {
             font-size: 13px;
             font-weight: 700;
@@ -95,9 +95,23 @@
             opacity: 0.65;
         }
 
-        /* =========================
-           HERO SECTION
-        ========================= */
+        .language-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 9px 12px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--black);
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .language-toggle:hover {
+            background: var(--light-grey);
+        }
+
+        /* HERO SECTION */
 
         .hero {
             padding: 105px 0 100px;
@@ -174,6 +188,7 @@
             font-weight: 800;
             border: 1px solid var(--lime);
             transition: background 0.2s ease;
+            cursor: pointer;
         }
 
         .button:hover {
@@ -190,9 +205,7 @@
             margin-left: 6px;
         }
 
-        /* =========================
-           PRICE SECTION
-        ========================= */
+        /* PRICE SECTION */
 
         .price-strip {
             background: var(--lime);
@@ -225,9 +238,7 @@
             letter-spacing: 0;
         }
 
-        /* =========================
-           SERVICES
-        ========================= */
+        /* SERVICES */
 
         .services {
             padding: 100px 0;
@@ -296,9 +307,7 @@
             line-height: 1.8;
         }
 
-        /* =========================
-           ABOUT SECTION
-        ========================= */
+        /* ABOUT SECTION */
 
         .approach {
             background: var(--light-grey);
@@ -327,6 +336,8 @@
         }
 
         .benefits li {
+            display: flex;
+            align-items: center;
             padding: 17px 0;
             border-bottom: 1px solid var(--border);
             font-size: 14px;
@@ -350,9 +361,7 @@
             flex-shrink: 0;
         }
 
-        /* =========================
-           CONTACT SECTION
-        ========================= */
+        /* CONTACT SECTION */
 
         .contact {
             padding: 100px 0;
@@ -379,9 +388,7 @@
             flex-shrink: 0;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
             border-top: 1px solid var(--border);
@@ -405,34 +412,40 @@
             font-size: 12px;
         }
 
-        /* =========================
-           ACCESSIBILITY
-        ========================= */
+        /* ACCESSIBILITY */
 
-        a:focus-visible {
+        a:focus-visible,
+        button:focus-visible {
             outline: 3px solid var(--lime-dark);
             outline-offset: 4px;
         }
 
-        /* =========================
-           MOBILE DESIGN
-        ========================= */
+        /* MOBILE DESIGN */
 
         @media (max-width: 700px) {
-
             .container {
                 width: 88%;
             }
 
             nav {
                 min-height: 70px;
+                gap: 12px;
             }
 
             .logo {
                 font-size: 18px;
             }
 
+            .nav-actions {
+                gap: 10px;
+            }
+
             .nav-link {
+                font-size: 11px;
+            }
+
+            .language-toggle {
+                padding: 8px;
                 font-size: 11px;
             }
 
@@ -510,7 +523,6 @@
         /* REDUCED MOTION */
 
         @media (prefers-reduced-motion: reduce) {
-
             html {
                 scroll-behavior: auto;
             }
@@ -521,7 +533,6 @@
                 transition-duration: 0.01ms !important;
             }
         }
-
     </style>
 </head>
 
@@ -532,180 +543,166 @@
     <header>
         <div class="container">
 
-            <nav aria-label="Main navigation">
+            <nav aria-label="Κύρια πλοήγηση">
 
-                <a href="#" class="logo" aria-label="English home">
+                <a href="#" class="logo" aria-label="Αρχική σελίδα">
                     <span>EN</span>GLISH.
                 </a>
 
-                <a href="#contact" class="nav-link">
-                    GET IN TOUCH ↗
-                </a>
+                <div class="nav-actions">
+
+                    <button
+                        type="button"
+                        id="language-toggle"
+                        class="language-toggle"
+                        aria-label="Switch to English"
+                    >
+                        🇬🇧 English
+                    </button>
+
+                    <a href="#contact" class="nav-link" data-i18n="navContact">
+                        ΕΠΙΚΟΙΝΩΝΙΑ ↗
+                    </a>
+
+                </div>
 
             </nav>
 
         </div>
     </header>
 
-
     <main>
 
         <!-- HERO SECTION -->
 
         <section class="hero">
-
             <div class="container">
-
                 <div class="hero-content">
 
-                    <span class="eyebrow">
-                        ONLINE ENGLISH LESSONS
+                    <span class="eyebrow" data-i18n="heroEyebrow">
+                        ΔΙΑΔΙΚΤΥΑΚΑ ΜΑΘΗΜΑΤΑ ΑΓΓΛΙΚΩΝ
                     </span>
 
-                    <h1>
-                        English that<br>
-                        moves you <span>forward.</span>
+                    <h1 data-i18n="heroTitle">
+                        Αγγλικά που<br>
+                        σε οδηγούν <span>μπροστά.</span>
                     </h1>
 
-                    <p class="hero-description">
-                        Online private English lessons for adults.
-                        Improve your English, build confidence and
-                        prepare for your exams with personalised
-                        guidance from a current Aristotle University
-                        of Thessaloniki (AUTH) student.
+                    <p class="hero-description" data-i18n="heroDescription">
+                        Ιδιαίτερα διαδικτυακά μαθήματα Αγγλικών για ενήλικες.
+                        Βελτίωσε τα Αγγλικά σου, απόκτησε αυτοπεποίθηση και
+                        προετοιμάσου για τις εξετάσεις σου με εξατομικευμένη
+                        καθοδήγηση από φοιτητή του Αριστοτελείου Πανεπιστημίου
+                        Θεσσαλονίκης (ΑΠΘ).
                     </p>
 
                     <div class="hero-actions">
 
-                        <a href="#contact" class="button">
-                            START LEARNING ↗
+                        <a href="#contact" class="button" data-i18n="heroButton">
+                            ΞΕΚΙΝΑ ΤΩΡΑ ↗
                         </a>
 
-                        <a href="#services" class="text-link">
-                            Explore lessons <span>↓</span>
+                        <a href="#services" class="text-link" data-i18n="heroLink">
+                            Δες τα μαθήματα <span>↓</span>
                         </a>
 
                     </div>
 
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- PRICE SECTION -->
 
         <section class="price-strip">
-
             <div class="container">
-
                 <div class="price-content">
 
-                    <p class="price-label">
-                        ONLINE · PERSONAL · AFFORDABLE
+                    <p class="price-label" data-i18n="priceLabel">
+                        ΔΙΑΔΙΚΤΥΑΚΑ · ΠΡΟΣΩΠΙΚΑ · ΠΡΟΣΙΤΑ
                     </p>
 
-                    <p class="price">
-                        Starting at €10 <small>/ hour</small>
+                    <p class="price" data-i18n="price">
+                        Από 10€ <small>/ ώρα</small>
                     </p>
 
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- SERVICES SECTION -->
 
         <section class="services" id="services">
-
             <div class="container">
 
                 <div class="section-heading">
 
-                    <span class="section-label">
-                        WHAT I OFFER
+                    <span class="section-label" data-i18n="servicesLabel">
+                        ΤΙ ΠΡΟΣΦΕΡΩ
                     </span>
 
-                    <h2>
-                        The right lesson for your goals.
+                    <h2 data-i18n="servicesTitle">
+                        Το κατάλληλο μάθημα για τους στόχους σου.
                     </h2>
 
-                    <p class="section-description">
-                        Improve your English, work towards Lower or
-                        Proficiency, and prepare for your examinations
-                        with personalised online lessons designed
-                        around your goals.
+                    <p class="section-description" data-i18n="servicesDescription">
+                        Βελτίωσε τα Αγγλικά σου, προετοιμάσου για Lower ή
+                        Proficiency και εξασκήσου για τις εξετάσεις σου με
+                        εξατομικευμένα διαδικτυακά μαθήματα σχεδιασμένα
+                        σύμφωνα με τους στόχους σου.
                     </p>
 
                 </div>
 
-
                 <div class="service-grid">
-
-                    <!-- SERVICE 1 -->
 
                     <article class="service-card">
 
-                        <span class="service-number">
-                            01
-                        </span>
+                        <span class="service-number">01</span>
 
-                        <h3>
-                            Private Lessons
+                        <h3 data-i18n="service1Title">
+                            Ιδιαίτερα Μαθήματα
                         </h3>
 
-                        <p>
-                            One-to-one online English lessons for
-                            adults. Learn from the comfort of your
-                            home, at your own pace, and focus on
-                            the language skills you want to improve.
+                        <p data-i18n="service1Description">
+                            Ατομικά διαδικτυακά μαθήματα Αγγλικών για
+                            ενήλικες. Μάθε από την άνεση του σπιτιού σου,
+                            με τον δικό σου ρυθμό, εστιάζοντας στις
+                            γλωσσικές δεξιότητες που θέλεις να βελτιώσεις.
                         </p>
 
                     </article>
 
-
-                    <!-- SERVICE 2 -->
-
                     <article class="service-card">
 
-                        <span class="service-number">
-                            02
-                        </span>
+                        <span class="service-number">02</span>
 
-                        <h3>
+                        <h3 data-i18n="service2Title">
                             Lower & Proficiency
                         </h3>
 
-                        <p>
-                            Online lessons for Lower and Proficiency
-                            levels. Strengthen your grammar,
-                            vocabulary, speaking and writing skills
-                            while building confidence in English.
+                        <p data-i18n="service2Description">
+                            Διαδικτυακά μαθήματα για επίπεδα Lower και
+                            Proficiency. Βελτίωσε τη γραμματική, το
+                            λεξιλόγιο, την ομιλία και τη γραφή σου,
+                            αποκτώντας μεγαλύτερη αυτοπεποίθηση στα Αγγλικά.
                         </p>
 
                     </article>
 
-
-                    <!-- SERVICE 3 -->
-
                     <article class="service-card">
 
-                        <span class="service-number">
-                            03
-                        </span>
+                        <span class="service-number">03</span>
 
-                        <h3>
-                            Exam Preparation
+                        <h3 data-i18n="service3Title">
+                            Προετοιμασία Εξετάσεων
                         </h3>
 
-                        <p>
-                            Prepare for your English examinations
-                            with focused practice, exam techniques
-                            and personalised guidance tailored to
-                            your level, needs and goals.
+                        <p data-i18n="service3Description">
+                            Προετοιμάσου για τις εξετάσεις Αγγλικών με
+                            στοχευμένη εξάσκηση, τεχνικές εξετάσεων και
+                            εξατομικευμένη καθοδήγηση προσαρμοσμένη στο
+                            επίπεδο, τις ανάγκες και τους στόχους σου.
                         </p>
 
                     </article>
@@ -713,70 +710,64 @@
                 </div>
 
             </div>
-
         </section>
 
-
-        <!-- ABOUT / TEACHING APPROACH -->
+        <!-- ABOUT SECTION -->
 
         <section class="approach">
-
             <div class="container">
 
                 <div class="approach-content">
 
                     <div>
 
-                        <span class="section-label">
-                            A LITTLE ABOUT ME
+                        <span class="section-label" data-i18n="aboutLabel">
+                            ΛΙΓΑ ΛΟΓΙΑ ΓΙΑ ΜΕΝΑ
                         </span>
 
-                        <h2>
-                            Simple lessons. Real progress.
+                        <h2 data-i18n="aboutTitle">
+                            Απλά μαθήματα. Πραγματική πρόοδος.
                         </h2>
 
-                        <p class="approach-intro">
-                            I am currently a student at Aristotle
-                            University of Thessaloniki (AUTH) and
-                            offer personalised online English lessons
-                            for adults.
-
+                        <p class="approach-intro" data-i18n="aboutDescription">
+                            Είμαι φοιτητής στο Αριστοτέλειο Πανεπιστήμιο
+                            Θεσσαλονίκης (ΑΠΘ) και προσφέρω εξατομικευμένα
+                            διαδικτυακά μαθήματα Αγγλικών για ενήλικες.
                             <br><br>
-
-                            Whether you want to improve your everyday
-                            English, work towards Lower or Proficiency,
-                            or prepare for an examination, lessons
-                            focus on your individual needs and goals.
+                            Είτε θέλεις να βελτιώσεις τα καθημερινά σου
+                            Αγγλικά, να προετοιμαστείς για Lower ή
+                            Proficiency, είτε να δώσεις εξετάσεις, τα
+                            μαθήματα προσαρμόζονται στις δικές σου ανάγκες
+                            και στόχους.
                         </p>
 
                     </div>
-
 
                     <ul class="benefits">
 
                         <li>
                             <span class="check">✓</span>
-                            Personalised one-to-one lessons
+                            <span data-i18n="benefit1">Εξατομικευμένα ιδιαίτερα μαθήματα</span>
                         </li>
 
                         <li>
                             <span class="check">✓</span>
-                            Convenient online learning
+                            <span data-i18n="benefit2">Ευέλικτη διαδικτυακή εκμάθηση</span>
                         </li>
 
                         <li>
                             <span class="check">✓</span>
-                            Lower & Proficiency preparation
+                            <span data-i18n="benefit3">Προετοιμασία για Lower & Proficiency</span>
                         </li>
 
                         <li>
                             <span class="check">✓</span>
-                            Lessons for adults
+                            <span data-i18n="benefit4">Μαθήματα για ενήλικες</span>
                         </li>
 
                         <li>
                             <span class="check">✓</span>
-                            Prices starting at €10 per hour
+                            <span data-i18n="benefit5">Τιμές από 10€ την ώρα</span>
                         </li>
 
                     </ul>
@@ -784,46 +775,41 @@
                 </div>
 
             </div>
-
         </section>
-
 
         <!-- CONTACT SECTION -->
 
         <section class="contact" id="contact">
-
             <div class="container">
 
                 <div class="contact-inner">
 
                     <div>
 
-                        <span class="section-label">
-                            YOUR NEXT STEP
+                        <span class="section-label" data-i18n="contactLabel">
+                            ΤΟ ΕΠΟΜΕΝΟ ΣΟΥ ΒΗΜΑ
                         </span>
 
-                        <h2>
-                            Ready to improve your English?
+                        <h2 data-i18n="contactTitle">
+                            Έτοιμος να βελτιώσεις τα Αγγλικά σου;
                         </h2>
 
-                        <p>
-                            Get in touch to discuss your current level,
-                            your goals and how we can work together.
-                            Let's get started!
+                        <p data-i18n="contactDescription">
+                            Επικοινώνησε μαζί μου για να συζητήσουμε το
+                            επίπεδό σου, τους στόχους σου και πώς μπορούμε
+                            να συνεργαστούμε. Ας ξεκινήσουμε!
                         </p>
 
                     </div>
 
-
                     <div class="contact-action">
-
-                        <!-- Replace with your actual email address -->
 
                         <a
                             href="mailto:ntouventzidoue@gmail.com?subject=Online%20English%20Lessons"
                             class="button"
+                            data-i18n="contactButton"
                         >
-                            CONTACT ME ↗
+                            ΕΠΙΚΟΙΝΩΝΗΣΕ ΜΑΖΙ ΜΟΥ ↗
                         </a>
 
                     </div>
@@ -831,16 +817,13 @@
                 </div>
 
             </div>
-
         </section>
 
     </main>
 
-
     <!-- FOOTER -->
 
     <footer>
-
         <div class="container">
 
             <div class="footer-content">
@@ -849,25 +832,183 @@
                     ENGLISH.
                 </a>
 
-                <p class="copyright">
-                    © <span id="year"></span> English Lessons.
-                    All rights reserved.
+                <p class="copyright" data-i18n="footerCopyright">
+                    © <span id="year"></span> Μαθήματα Αγγλικών.
+                    Με επιφύλαξη παντός δικαιώματος.
                 </p>
 
             </div>
 
         </div>
-
     </footer>
 
-
-    <!-- AUTOMATIC COPYRIGHT YEAR -->
+    <!-- LANGUAGE SWITCHING -->
 
     <script>
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+        const translations = {
+            el: {
+                navContact: "ΕΠΙΚΟΙΝΩΝΙΑ ↗",
+
+                heroEyebrow: "ΔΙΑΔΙΚΤΥΑΚΑ ΜΑΘΗΜΑΤΑ ΑΓΓΛΙΚΩΝ",
+                heroTitle: 'Αγγλικά που<br>σε οδηγούν <span>μπροστά.</span>',
+                heroDescription: "Ιδιαίτερα διαδικτυακά μαθήματα Αγγλικών για ενήλικες. Βελτίωσε τα Αγγλικά σου, απόκτησε αυτοπεποίθηση και προετοιμάσου για τις εξετάσεις σου με εξατομικευμένη καθοδήγηση από φοιτητή του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης (ΑΠΘ).",
+                heroButton: "ΞΕΚΙΝΑ ΤΩΡΑ ↗",
+                heroLink: "Δες τα μαθήματα <span>↓</span>",
+
+                priceLabel: "ΔΙΑΔΙΚΤΥΑΚΑ · ΠΡΟΣΩΠΙΚΑ · ΠΡΟΣΙΤΑ",
+                price: "Από 10€ <small>/ ώρα</small>",
+
+                servicesLabel: "ΤΙ ΠΡΟΣΦΕΡΩ",
+                servicesTitle: "Το κατάλληλο μάθημα για τους στόχους σου.",
+                servicesDescription: "Βελτίωσε τα Αγγλικά σου, προετοιμάσου για Lower ή Proficiency και εξασκήσου για τις εξετάσεις σου με εξατομικευμένα διαδικτυακά μαθήματα σχεδιασμένα σύμφωνα με τους στόχους σου.",
+
+                service1Title: "Ιδιαίτερα Μαθήματα",
+                service1Description: "Ατομικά διαδικτυακά μαθήματα Αγγλικών για ενήλικες. Μάθε από την άνεση του σπιτιού σου, με τον δικό σου ρυθμό, εστιάζοντας στις γλωσσικές δεξιότητες που θέλεις να βελτιώσεις.",
+
+                service2Title: "Lower & Proficiency",
+                service2Description: "Διαδικτυακά μαθήματα για επίπεδα Lower και Proficiency. Βελτίωσε τη γραμματική, το λεξιλόγιο, την ομιλία και τη γραφή σου, αποκτώντας μεγαλύτερη αυτοπεποίθηση στα Αγγλικά.",
+
+                service3Title: "Προετοιμασία Εξετάσεων",
+                service3Description: "Προετοιμάσου για τις εξετάσεις Αγγλικών με στοχευμένη εξάσκηση, τεχνικές εξετάσεων και εξατομικευμένη καθοδήγηση προσαρμοσμένη στο επίπεδο, τις ανάγκες και τους στόχους σου.",
+
+                aboutLabel: "ΛΙΓΑ ΛΟΓΙΑ ΓΙΑ ΜΕΝΑ",
+                aboutTitle: "Απλά μαθήματα. Πραγματική πρόοδος.",
+                aboutDescription: "Είμαι φοιτητής στο Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης (ΑΠΘ) και προσφέρω εξατομικευμένα διαδικτυακά μαθήματα Αγγλικών για ενήλικες.<br><br>Είτε θέλεις να βελτιώσεις τα καθημερινά σου Αγγλικά, να προετοιμαστείς για Lower ή Proficiency, είτε να δώσεις εξετάσεις, τα μαθήματα προσαρμόζονται στις δικές σου ανάγκες και στόχους.",
+
+                benefit1: "Εξατομικευμένα ιδιαίτερα μαθήματα",
+                benefit2: "Ευέλικτη διαδικτυακή εκμάθηση",
+                benefit3: "Προετοιμασία για Lower & Proficiency",
+                benefit4: "Μαθήματα για ενήλικες",
+                benefit5: "Τιμές από 10€ την ώρα",
+
+                contactLabel: "ΤΟ ΕΠΟΜΕΝΟ ΣΟΥ ΒΗΜΑ",
+                contactTitle: "Έτοιμος να βελτιώσεις τα Αγγλικά σου;",
+                contactDescription: "Επικοινώνησε μαζί μου για να συζητήσουμε το επίπεδό σου, τους στόχους σου και πώς μπορούμε να συνεργαστούμε. Ας ξεκινήσουμε!",
+                contactButton: "ΕΠΙΚΟΙΝΩΝΗΣΕ ΜΑΖΙ ΜΟΥ ↗",
+
+                footerCopyright: "© {year} Μαθήματα Αγγλικών. Με επιφύλαξη παντός δικαιώματος."
+            },
+
+            en: {
+                navContact: "GET IN TOUCH ↗",
+
+                heroEyebrow: "ONLINE ENGLISH LESSONS",
+                heroTitle: 'English that<br>moves you <span>forward.</span>',
+                heroDescription: "Online private English lessons for adults. Improve your English, build confidence and prepare for your exams with personalised guidance from a current Aristotle University of Thessaloniki (AUTH) student.",
+                heroButton: "START LEARNING ↗",
+                heroLink: "Explore lessons <span>↓</span>",
+
+                priceLabel: "ONLINE · PERSONAL · AFFORDABLE",
+                price: "Starting at €10 <small>/ hour</small>",
+
+                servicesLabel: "WHAT I OFFER",
+                servicesTitle: "The right lesson for your goals.",
+                servicesDescription: "Improve your English, work towards Lower or Proficiency, and prepare for your examinations with personalised online lessons designed around your goals.",
+
+                service1Title: "Private Lessons",
+                service1Description: "One-to-one online English lessons for adults. Learn from the comfort of your home, at your own pace, and focus on the language skills you want to improve.",
+
+                service2Title: "Lower & Proficiency",
+                service2Description: "Online lessons for Lower and Proficiency levels. Strengthen your grammar, vocabulary, speaking and writing skills while building confidence in English.",
+
+                service3Title: "Exam Preparation",
+                service3Description: "Prepare for your English examinations with focused practice, exam techniques and personalised guidance tailored to your level, needs and goals.",
+
+                aboutLabel: "A LITTLE ABOUT ME",
+                aboutTitle: "Simple lessons. Real progress.",
+                aboutDescription: "I am currently a student at Aristotle University of Thessaloniki (AUTH) and offer personalised online English lessons for adults.<br><br>Whether you want to improve your everyday English, work towards Lower or Proficiency, or prepare for an examination, lessons focus on your individual needs and goals.",
+
+                benefit1: "Personalised one-to-one lessons",
+                benefit2: "Convenient online learning",
+                benefit3: "Lower & Proficiency preparation",
+                benefit4: "Lessons for adults",
+                benefit5: "Prices starting at €10 per hour",
+
+                contactLabel: "YOUR NEXT STEP",
+                contactTitle: "Ready to improve your English?",
+                contactDescription: "Get in touch to discuss your current level, your goals and how we can work together. Let's get started!",
+                contactButton: "CONTACT ME ↗",
+
+                footerCopyright: "© {year} English Lessons. All rights reserved."
+            }
+        };
+
+        const languageToggle = document.getElementById("language-toggle");
+
+        let currentLanguage;
+
+        try {
+            const savedLanguage = localStorage.getItem("preferredLanguage");
+            currentLanguage = savedLanguage === "en" ? "en" : "el";
+        } catch (error) {
+            currentLanguage = "el";
+        }
+
+        function setLanguage(language) {
+            currentLanguage = language;
+
+            document.documentElement.lang = language;
+
+            document.title = language === "el"
+                ? "Μαθήματα Αγγλικών Online | Ιδιαίτερα Μαθήματα"
+                : "Online English Lessons | Private Tutoring";
+
+            const description = document.querySelector(
+                'meta[name="description"]'
+            );
+
+            description.content = language === "el"
+                ? "Ιδιαίτερα διαδικτυακά μαθήματα Αγγλικών για ενήλικες, προετοιμασία για Lower, Proficiency και εξετάσεις. Μαθήματα από 10€ την ώρα."
+                : "Online private English lessons for adults, including Lower, Proficiency and exam preparation. Lessons starting at €10 per hour.";
+
+            document.querySelectorAll("[data-i18n]").forEach(element => {
+                const key = element.dataset.i18n;
+                const translation = translations[language][key];
+
+                if (translation !== undefined) {
+                    element.innerHTML = translation.replace(
+                        "{year}",
+                        new Date().getFullYear()
+                    );
+                }
+            });
+
+            languageToggle.textContent = language === "el"
+                ? "🇬🇧 English"
+                : "🇬🇷 Ελληνικά";
+
+            languageToggle.setAttribute(
+                "aria-label",
+                language === "el"
+                    ? "Switch to English"
+                    : "Αλλαγή σε Ελληνικά"
+            );
+
+            languageToggle.setAttribute(
+                "lang",
+                language === "el" ? "en" : "el"
+            );
+
+            document.querySelector("nav").setAttribute(
+                "aria-label",
+                language === "el"
+                    ? "Κύρια πλοήγηση"
+                    : "Main navigation"
+            );
+
+            try {
+                localStorage.setItem("preferredLanguage", language);
+            } catch (error) {
+                // The page still works if localStorage is unavailable.
+            }
+        }
+
+        languageToggle.addEventListener("click", () => {
+            setLanguage(currentLanguage === "el" ? "en" : "el");
+        });
+
+        setLanguage(currentLanguage);
     </script>
 
 </body>
-
 </html>
